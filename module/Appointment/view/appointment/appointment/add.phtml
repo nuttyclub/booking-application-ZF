@@ -21,7 +21,6 @@ $end_time = $form->get('end_time');
 $end_time->setAttribute('class', 'form-control');
 $end_time->setAttribute('placeholder', 'End Time');
 
-// This provides CSS classes for the submit button:
 $submit = $form->get('submit');
 $submit->setAttribute('class', 'btn btn-primary');
 
@@ -30,8 +29,6 @@ $form->prepare();
 
 echo $this->form()->openTag($form);
 ?>
-<?php // Wrap the elements in divs marked as form groups, and render the
-      // label, element, and errors separately within ?>
 <div class="form-group">
     <?= $this->formLabel($username) ?>
     <?= $this->formElement($username) ?>
