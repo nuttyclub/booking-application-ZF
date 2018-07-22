@@ -13,8 +13,7 @@ SQLITE
 The easiest way to set this up is through composer. Also we will be using Php's built in webserver as oppose to Appache. and SQLITE for out data storage.
 
 1. Make sure you have composer. Download/update composer - https://getcomposer.org/
-2. Clone the project and navigate to the project.
-    a. git clone 
-    b. cd ./appointment-backend
+2. Clone the project and navigate to it. `git clone git@github.com:nuttyclub/booking-application-ZF.git`
 3. Do a `composer update`. and do a `composer install`.
-4. Now because we have a script in our composer.json file. you can just run `composer serve` and it should start up `localhost:8080`. but if that doesn't work you can start the php server manually by running `$ php -S 0.0.0.0:8080 -t public public/index.php`
+4. Set up the database. `$ sqlite data/zftutorial.db < data/schema.sql` or `$ sqlite3 data/zftutorial.db < data/schema.sql`
+5. Now because we have a script in our composer.json file. you can just run `composer serve` and it should start up `localhost:8080`. but if that doesn't work you can start the php server manually by running `$ php -S 0.0.0.0:8080 -t public public/index.php`
