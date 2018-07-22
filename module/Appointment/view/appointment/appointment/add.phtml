@@ -1,0 +1,62 @@
+<?php
+
+$title = 'Add new appointment';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+$username = $form->get('username');
+$username->setAttribute('class', 'form-control');
+$username->setAttribute('placeholder', 'User name');
+
+$reason = $form->get('reason');
+$reason->setAttribute('class', 'form-control');
+$reason->setAttribute('placeholder', 'Reason');
+
+$start_time = $form->get('start_time');
+$start_time->setAttribute('class', 'form-control');
+$start_time->setAttribute('placeholder', 'Start Time');
+
+$end_time = $form->get('end_time');
+$end_time->setAttribute('class', 'form-control');
+$end_time->setAttribute('placeholder', 'End Time');
+
+// This provides CSS classes for the submit button:
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('appointment', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<?php // Wrap the elements in divs marked as form groups, and render the
+      // label, element, and errors separately within ?>
+<div class="form-group">
+    <?= $this->formLabel($username) ?>
+    <?= $this->formElement($username) ?>
+    <?= $this->formElementErrors()->render($username, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($reason) ?>
+    <?= $this->formElement($reason) ?>
+    <?= $this->formElementErrors()->render($reason, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($start_time) ?>
+    <?= $this->formElement($start_time) ?>
+    <?= $this->formElementErrors()->render($start_time, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($end_time) ?>
+    <?= $this->formElement($end_time) ?>
+    <?= $this->formElementErrors()->render($end_time, ['class' => 'help-block']) ?>
+</div>
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();
